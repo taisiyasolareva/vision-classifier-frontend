@@ -247,6 +247,66 @@ p {
 .quietBlock__body {
 }
 
+.samples {
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+.samples__title {
+  margin-bottom: 6px;
+}
+.samples__hint {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+.samples__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sampleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.sampleCard:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--panel-2);
+}
+.sampleCard:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.sampleCard:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.sampleCard__thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+.sampleCard__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sampleCard__label {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
 .upload {
   margin-top: 12px;
   display: grid;

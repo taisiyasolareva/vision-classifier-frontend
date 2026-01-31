@@ -47,6 +47,14 @@ npm run build
 npm run preview
 ```
 
+## Sample images (Try sample images)
+
+The main page includes a **Try sample images** section with 3 built-in images from the validation set so reviewers can test the model without the full dataset.
+
+- **Where they live:** `public/samples/` (served at `/samples/` in dev and production; Vite copies `public/` into `dist/` on build).
+- **How to update:** Replace the 3 files in `public/samples/` and ensure `src/lib/samples.ts` has matching `src` paths and `label` values. Labels must match the model’s label mapping (e.g. folder names from `val/` such as `class_000`, `class_001`, `class_002`).
+- **Optimization:** Resize/compress images before adding (e.g. max 400px, JPEG quality 85) to keep bundle size small.
+
 ## Production CORS note
 
 If the UI and API are on different domains (e.g., Vercel UI → HF Spaces API), the backend must allow the UI origin via CORS. Configure the backend to allow your deployed UI URL (do not use `*` in production).

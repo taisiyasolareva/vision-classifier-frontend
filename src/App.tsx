@@ -5,6 +5,10 @@ import {
   predictImage,
   type Prediction,
 } from "./lib/api";
+import {
+  SAMPLE_IMAGES,
+  fetchSampleAsFile,
+} from "./lib/samples";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -149,6 +153,25 @@ export default function App() {
     }
   }
 
+  async function onSampleClick(sample: (typeof SAMPLE_IMAGES)[number]) {
+    if (inputRef.current) inputRef.current.value = "";
+    setPredictions(null);
+    setErrorText("");
+    setPredictStatus("loading");
+
+    try {
+      const fileFromSample = await fetchSampleAsFile(sample.src, `${sample.id}.jpg`);
+      setFile(fileFromSample);
+      const res = await predictImage({ file: fileFromSample, topK });
+      setPredictions(res.predictions);
+      setPredictStatus("success");
+    } catch (e: any) {
+      setErrorText(String(e?.message || e));
+      setPredictStatus("error");
+      setFile(null);
+    }
+  }
+
   function onPickAnother() {
     setFile(null);
     setPredictions(null);
@@ -188,6 +211,29 @@ export default function App() {
               ℹ
             </span>
           </p>
+
+          <div className="samples">
+            <h3 className="samples__title t3">Try sample images</h3>
+            <p className="samples__hint t5">Click an image to classify it. Or upload your own below.</p>
+            <div className="samples__grid" role="list">
+              {SAMPLE_IMAGES.map((sample) => (
+                <button
+                  key={sample.id}
+                  type="button"
+                  className="sampleCard"
+                  onClick={() => onSampleClick(sample)}
+                  disabled={predictStatus === "loading"}
+                  role="listitem"
+                  aria-label={`Classify sample: ${sample.label}`}
+                >
+                  <div className="sampleCard__thumb">
+                    <img src={sample.src} alt="" loading="lazy" />
+                  </div>
+                  <span className="sampleCard__label t5">{sample.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="upload">
             <input
