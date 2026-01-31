@@ -3,7 +3,7 @@
 **Production Computer Vision: 200‑Class Image Classification.**  
 React + Vite single-page UI for the vision-classifier-api (repo: **vision-classifier-frontend**).
 
-**CTAs:** Live Demo · [Read the Report](../cv200-backend/REPORT.md) · [API Docs](https://solarevat-cv200.hf.space/docs) *(Links: TODO — set Live Demo URL when deployed.)*
+**CTAs:** [Live Demo](https://vision-classifier-ui.vercel.app/) · [API Docs](https://solarevat-cv200.hf.space/docs)
 
 ## Live API (backend)
 
@@ -13,7 +13,7 @@ React + Vite single-page UI for the vision-classifier-api (repo: **vision-classi
 
 ## UI deployment
 
-Add your deployed UI URL here once the app is live (e.g. after pushing the repo and deploying to Vercel).
+- **Live app:** [https://vision-classifier-ui.vercel.app/](https://vision-classifier-ui.vercel.app/) (Vercel)
 
 ## Configure
 

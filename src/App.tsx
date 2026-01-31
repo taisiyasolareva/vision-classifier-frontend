@@ -170,11 +170,9 @@ export default function App() {
         </div>
 
         <nav className="header__links" aria-label="Project links">
-          <a className="link t4" href="#links-todo">Live Demo</a>
+          <a className="link t4" href="https://vision-classifier-ui.vercel.app/" target="_blank" rel="noreferrer">Live Demo</a>
           <span className="muted">·</span>
-          <a className="link t4" href="#links-todo">Read the Report</a>
-          <span className="muted">·</span>
-          <a className="link t4" href={docs || "#links-todo"} target="_blank" rel="noreferrer">API Docs</a>
+          <a className="link t4" href={docs || "#"} target="_blank" rel="noreferrer">API Docs</a>
         </nav>
       </header>
 
@@ -487,8 +485,10 @@ export default function App() {
           </div>
         </details>
 
-        <div id="links-todo" className="devFooter t5">
-          <span className="devFooter__title">Live Demo · Read the Report · API Docs</span>
+        <div className="devFooter t5">
+          <a className="link link--muted" href="https://vision-classifier-ui.vercel.app/" target="_blank" rel="noreferrer">
+            Live Demo
+          </a>
           <span className="devFooter__sep">·</span>
           {docs ? (
             <a className="link link--muted" href={docs} target="_blank" rel="noreferrer">
@@ -501,7 +501,6 @@ export default function App() {
           <span>
             Deployment: <code>VITE_API_URL</code>
           </span>
-          <span className="t5 muted"> (Links: TODO — set Live Demo and Report URLs when available.)</span>
         </div>
       </footer>
     </div>
